@@ -1,245 +1,134 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Rádio Viola Raiz - 100% Caipira</title>
+<title>Rádio Viola Raiz</title>
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
-    url("92583-2026-03-24%20(1).png");
-
-    background-size:cover;
-    background-position:center;
-
+background:#205a29;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background-image:linear-gradient(#2f7d32,#173d1d);
 }
 
-
-.radio{
-
-    width:420px;
-    max-width:95%;
-
-    background:rgba(255,255,255,.12);
-    backdrop-filter:blur(15px);
-
-    border-radius:25px;
-
-    overflow:hidden;
-
-    box-shadow:
-    0 0 40px rgba(0,0,0,.6);
-
-    color:white;
-
+.card{
+width:380px;
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 0 30px rgba(0,0,0,.4);
 }
 
-
-.capa{
-
-    width:100%;
-    display:block;
-
+img{
+width:100%;
+display:block;
 }
 
-
-.conteudo{
-
-    padding:25px;
-    text-align:center;
-
+.info{
+padding:20px;
+text-align:center;
 }
-
 
 h1{
-
-    font-size:30px;
-    color:#ffd54f;
-
+color:#2f7d32;
 }
 
-
-.sub{
-
-    margin:10px;
-    font-size:17px;
-
+p{
+margin-top:10px;
+color:#555;
 }
 
-
-.status{
-
-    display:inline-block;
-
-    background:#00c853;
-
-    padding:8px 20px;
-
-    border-radius:30px;
-
-    margin:15px;
-
-    font-weight:bold;
-
+button{
+margin-top:20px;
+padding:15px 40px;
+font-size:18px;
+background:#2f7d32;
+color:white;
+border:none;
+border-radius:50px;
+cursor:pointer;
 }
 
-
-audio{
-
-    width:100%;
-
-    margin-top:15px;
-
+button:hover{
+background:#205a29;
 }
-
-
-.botao{
-
-    display:inline-block;
-
-    margin-top:20px;
-
-    padding:14px 35px;
-
-    background:#8b4513;
-
-    color:white;
-
-    text-decoration:none;
-
-    border-radius:50px;
-
-    font-size:18px;
-
-}
-
-
-.botao:hover{
-
-    background:#a0522d;
-
-}
-
-
-.redes{
-
-    margin-top:25px;
-
-}
-
-
-.redes a{
-
-    margin:5px;
-
-    color:white;
-
-    text-decoration:none;
-
-    font-size:25px;
-
-}
-
 
 footer{
-
-    margin-top:20px;
-
-    color:#ddd;
-
-    font-size:13px;
-
+margin-top:20px;
+font-size:13px;
+color:#777;
 }
 
 </style>
 
 </head>
 
-
 <body>
 
+<div class="card">
 
-<div class="radio">
+<img src="logo.jpg">
 
-
-<img class="capa" 
-src="92583-2026-03-24%20(1).png">
-
-
-<div class="conteudo">
-
+<div class="info">
 
 <h1>Rádio Viola Raiz</h1>
 
-<div class="sub">
-🎵 100% Caipira - São Geraldo MG
-</div>
+<p>100% Música Caipira</p>
 
-
-<div class="status">
-
-🔴 AO VIVO
-
-</div>
-
-
-<audio controls autoplay>
-
+<audio id="radio" controls>
 <source src="https://stm15.xcast.com.br:6826/;" type="audio/mpeg">
-
 </audio>
 
-
-<a class="botao" 
-href="https://stm15.xcast.com.br:6826/;"
-target="_blank">
-
-▶ Ouvir Rádio
-
-</a>
-
-
-<div class="redes">
-
-<a href="#">📱</a>
-
-<a href="#">👍</a>
-
-<a href="#">📸</a>
-
-</div>
-
+<button onclick="playRadio()" id="botao">
+▶ Ouvir Agora
+</button>
 
 <footer>
 
-Rádio Viola Raiz © 2026
+Ao vivo 24 horas
 
 </footer>
 
+</div>
 
 </div>
 
+<script>
 
-</div>
+var radio=document.getElementById("radio");
+var botao=document.getElementById("botao");
 
+function playRadio(){
+
+if(radio.paused){
+
+radio.play();
+
+botao.innerHTML="⏸ Pausar";
+
+}else{
+
+radio.pause();
+
+botao.innerHTML="▶ Ouvir Agora";
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
